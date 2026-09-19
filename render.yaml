@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: urban-traffic-cv
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: HATCHABLE_INGEST_URL
+        sync: false
+      - key: CV_INGEST_SECRET
+        sync: false
+      - key: YOLO_MODEL
+        value: yolov8n.pt
+      - key: YOLO_CONF
+        value: "0.35"
+      - key: FRAME_STRIDE
+        value: "2"
+      - key: PIXELS_PER_METER
+        value: "8"
+      - key: SPEED_LIMIT_KMH
+        value: "50"
